@@ -18,9 +18,9 @@ const config = new Configuration({
 const openai = new OpenAIApi(config);
 
 const generateInfo = async(req, res) => {
-    try {
-        const { recipe } = req.body;
+    const { recipe } = req.body;
 
+    try {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: `${recipePrompt}${recipe}` }],
@@ -38,7 +38,7 @@ const generateInfo = async(req, res) => {
         console.log(error);
     
         // Check if error.response exists before trying to access its properties
-        if (error.response && error.response.status === 401) {
+        if (error.response.status === 401) {
             return res.status(401).json({
                 error: "Please provide a valid API key.",
             });

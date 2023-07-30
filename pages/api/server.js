@@ -7,17 +7,27 @@
 // 6. state which port the server is listening to and log it to the console
 
 const express = require('express');
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv').config();
+const cors = require('cors');
+
+const PORT = 8080
 
 const app = express();
-const port = process.env.PORT || 8080;
 
-// Middleware to parse JSON request bodies
+// const port = process.env.PORT || 8080;
+// Allow cross-origin requests from all domains
+app.use(cors());
+
+// enable body parser to accept json data
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
+// add router to the server and name it openai
 app.use('/openai', require('./router'));
 
-app.listen(port, () =>
-  console.log(`App listening at http://localhost:${port}`)
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT}`)
 );
+
+// export the express api
+module.exports = app;
