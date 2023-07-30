@@ -8,5 +8,16 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 8080;
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
+app.use('/openai', require('./router'));
+
+app.listen(port, () =>
+  console.log(`App listening at http://localhost:${port}`)
+);
