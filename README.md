@@ -1,13 +1,26 @@
-# GitHub Codespaces ♥️ Next.js
+# Meal Metrics
 
-Welcome to your shiny new Codespace running Next.js! We've got everything fired up and running for you to explore Next.js.
+## Description
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+Meal Metrics is a web application that allows users to input a recipe and receive nutritional facts about the dish.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+## Features
 
-To run this application:
+- Input a recipe and retrieve its nutritional facts
+- Utilizes OpenAI to process and determine nutritional content
 
-```
-npm run dev
-```
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <https://github.com/jonesmatr/Meal-Metrics.git>
